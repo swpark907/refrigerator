@@ -5,11 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import itemList from './ItemList';
 
-
+console.log(itemList)
 
 ReactDOM.render(
   <React.StrictMode>
-    <App items={itemList}/>
+    <App itemsData={itemList}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -32,7 +32,7 @@ ul li{
     cursor: pointer;
     background-color: rgb(255, 204, 109);
     border-radius: 10px;
-    padding: 0.5rem;
+    padding: 0.7rem;
     margin: 0.5rem;    
     display: none;
 }
@@ -42,14 +42,14 @@ ul li{
 }
 
 .item.selected{
-    background-color: rgb(255, 169, 89);
+    background-color: rgb(253, 140, 33);
 }
 
 .item.active{
     display: block;
 }
 
-.item-cancel{
+/* .item-cancel{
     cursor: pointer;
     margin-left: 0.5rem;
     background-color: transparent;
@@ -60,7 +60,7 @@ ul li{
 
 .item-cancel:hover{
     color: black;
-}
+} */
 
 .selected-area{
     flex-basis: 40%;
