@@ -26,10 +26,8 @@ function App({itemsData}) {
     setKeyword(currentValue)       
     let keyLeng = currentValue.length;
 
-    const filtered = data.filter(item => item.name.includes(currentValue));
-    console.log(filtered)
-    setFilteredItem(filtered);
-    
+    const filtered = data.filter(item => item.name.includes(currentValue));    
+    setFilteredItem(filtered);    
 }
 
   
@@ -37,7 +35,7 @@ function App({itemsData}) {
   return (
     <div className="App">
       <div className="container">
-        <Search itemsData={itemsData} addSelectedItem={addSelectedItem} autoComplete={autoComplete} filteredItem={filteredItem}></Search>      
+        <Search itemsData={itemsData} addSelectedItem={addSelectedItem} autoComplete={autoComplete} filteredItem={filteredItem} itemsData={itemsData}></Search>      
         <SelectedItem selectedItem={selectedItem}></SelectedItem>
       </div>
       

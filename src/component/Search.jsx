@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-function Search({addSelectedItem, autoComplete, filteredItem}) {
+function Search({addSelectedItem, autoComplete, filteredItem, itemsData}) {
 
     
 
@@ -30,12 +30,15 @@ function Search({addSelectedItem, autoComplete, filteredItem}) {
             <h2>냉장고 털기</h2>
             <input type="text" onChange={(e) => autoComplete(e)} />
             <ul className="items-list" >
-            {
-                filteredItem.map((item) => 
-                <li className="item active" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name}                
-                </li>
-                )
-            }
+                {   filteredItem === undefined ? 
+                    itemsData.items.map((item) => 
+                    <li className="item active" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name} </li>
+                    )
+                :
+                    filteredItem.map((item) => 
+                    <li className="item active" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name} </li>
+                    )
+                }
             </ul>
             
             <button className='reset-selected' onClick={resetSelected}>다시 고르기</button>
