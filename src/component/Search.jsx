@@ -1,18 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
-function Search({itemsData, addSelectedItem}) {
+function Search({addSelectedItem, autoComplete, filteredItem}) {
 
-    const items = document.querySelectorAll('.item');
-
-    function autoComplete(e){
-        const currentValue = e.target.value;
-        items.forEach(li => {
-            li.classList.remove('active');
-            if(li.dataset.name.includes(e.target.value)){
-                li.classList.add('active')
-            }
-        })
-    }
+    
 
     function selected(e){
         if(e.currentTarget.classList.contains('selected')){
@@ -25,11 +15,13 @@ function Search({itemsData, addSelectedItem}) {
         }
     }
 
-    function resetSelected(e){
-        items.forEach(li => {
-            console.log(li)
-            li.classList.remove('selected');
-        })
+    
+
+    function resetSelected(){
+        // items.forEach(li => {
+        //     console.log(li)
+        //     li.classList.remove('selected');
+        // })
     }
 
     
@@ -37,9 +29,9 @@ function Search({itemsData, addSelectedItem}) {
         <div className='main'>
             <h2>냉장고 털기</h2>
             <input type="text" onChange={(e) => autoComplete(e)} />
-            <ul className="items-list">
+            <ul className="items-list" >
             {
-                itemsData.items.map((item) => 
+                filteredItem.map((item) => 
                 <li className="item active" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name}                
                 </li>
                 )
