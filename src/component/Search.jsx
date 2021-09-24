@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-function Search({addSelectedItem, autoComplete, filteredItem, itemsData, resetSelected}) {
+function Search({addSelectedItem, autoComplete, filteredItem, itemsData, resetSelected, selectedItem}) {
 
     
 
@@ -15,10 +15,6 @@ function Search({addSelectedItem, autoComplete, filteredItem, itemsData, resetSe
     }
 
     
-
-    
-
-    
     return (
         <div className='main'>
             <h2>냉장고 털기</h2>
@@ -30,6 +26,9 @@ function Search({addSelectedItem, autoComplete, filteredItem, itemsData, resetSe
                     )
                 :
                     filteredItem.map((item) => 
+                    selectedItem.includes(item.name) ?
+                    <li className="item active selected" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name} </li>
+                    :
                     <li className="item active" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name} </li>
                     )
                 }

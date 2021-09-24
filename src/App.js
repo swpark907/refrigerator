@@ -42,7 +42,7 @@ function App({itemsData}) {
   return (
     <div className="App">
       <div className="container">
-        <Search itemsData={itemsData} addSelectedItem={addSelectedItem} autoComplete={autoComplete} filteredItem={filteredItem} itemsData={itemsData} resetSelected={resetSelected}></Search>      
+        <Search itemsData={itemsData} addSelectedItem={addSelectedItem} autoComplete={autoComplete} filteredItem={filteredItem} itemsData={itemsData} resetSelected={resetSelected} selectedItem={selectedItem}></Search>      
         <SelectedItem selectedItem={selectedItem}></SelectedItem>
       </div>
       
