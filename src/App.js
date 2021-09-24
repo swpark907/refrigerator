@@ -15,27 +15,34 @@ function App({itemsData}) {
 
   const addSelectedItem = (item) => {
     const updated = [...selectedItem, item ]
+
     if(selectedItem.includes(item)){
-      setSelectedItem(updated)
+      
+      const updated2 = updated.filter(selected => selected !== item)    
+      console.log(updated2)  
+      setSelectedItem(updated2)
+      return;
     }
+
+    setSelectedItem(updated)
   }
 
   function autoComplete(e){
-
     const currentValue = e.target.value;
-    setKeyword(currentValue)       
-    let keyLeng = currentValue.length;
+    setKeyword(currentValue);
 
     const filtered = data.filter(item => item.name.includes(currentValue));    
     setFilteredItem(filtered);    
-}
+  }
 
-  
+  function resetSelected(){
+    setSelectedItem([]);
+  }
 
   return (
     <div className="App">
       <div className="container">
-        <Search itemsData={itemsData} addSelectedItem={addSelectedItem} autoComplete={autoComplete} filteredItem={filteredItem} itemsData={itemsData}></Search>      
+        <Search itemsData={itemsData} addSelectedItem={addSelectedItem} autoComplete={autoComplete} filteredItem={filteredItem} itemsData={itemsData} resetSelected={resetSelected}></Search>      
         <SelectedItem selectedItem={selectedItem}></SelectedItem>
       </div>
       

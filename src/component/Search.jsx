@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-function Search({addSelectedItem, autoComplete, filteredItem, itemsData}) {
+function Search({addSelectedItem, autoComplete, filteredItem, itemsData, resetSelected}) {
 
     
 
@@ -9,20 +9,14 @@ function Search({addSelectedItem, autoComplete, filteredItem, itemsData}) {
             e.currentTarget.classList.remove('selected')
 
         } else{
-        e.currentTarget.classList.add('selected')
-        addSelectedItem(e.currentTarget.dataset.name);
-        console.log(e.currentTarget.dataset.name)
+        e.currentTarget.classList.add('selected')        
         }
+        addSelectedItem(e.currentTarget.dataset.name);
     }
 
     
 
-    function resetSelected(){
-        // items.forEach(li => {
-        //     console.log(li)
-        //     li.classList.remove('selected');
-        // })
-    }
+    
 
     
     return (
