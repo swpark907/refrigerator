@@ -20,16 +20,20 @@ function Search({addSelectedItem, autoComplete, filteredItem, itemsData, resetSe
             <h2>냉장고 털기</h2>
             <input type="text" onChange={(e) => autoComplete(e)} />
             <ul className="items-list" >
-                {   filteredItem === undefined ? 
+                {
+                    filteredItem === undefined ? 
                     itemsData.items.map((item) => 
-                    <li className="item active" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name} </li>
+                        selectedItem.includes(item.name) ?
+                        <li className="item active selected" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name} </li>
+                        :
+                        <li className="item active" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name} </li>
                     )
                 :
                     filteredItem.map((item) => 
-                    selectedItem.includes(item.name) ?
-                    <li className="item active selected" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name} </li>
-                    :
-                    <li className="item active" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name} </li>
+                        selectedItem.includes(item.name) ?
+                        <li className="item active selected" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name} </li>
+                        :
+                        <li className="item active" onClick={e=>selected(e)} key={item.id} data-name={item.name}> {item.name} </li>
                     )
                 }
             </ul>
