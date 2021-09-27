@@ -1,9 +1,23 @@
+import e from 'cors';
 import React from 'react';
 
-function Result(props) {
+function Result({naverData, youtubeData}) {
+    // let stringFromItem = selectedItem.join(' ')
+    console.log(youtubeData, 'youtubeData in Result')
+    
     return (
         <div className="section">
-            결과창이 뜰 곳입니다
+            <ul className='videos'>
+                {
+                    youtubeData && youtubeData.map((data) => 
+                        <li className='video' onClick={() => {window.open(`http://www.youtube.com/watch?v=${data.id}`, '_blank')}}>
+                            <p className='video_title'>{data.snippet.title}</p>
+                            <p></p>
+                            
+                        </li>
+                    )
+                }
+            </ul>
         </div>
     );
 }

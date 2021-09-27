@@ -27,6 +27,13 @@ const itemList = {
         {id: 25, type: null,  name: '소고기'},
         {id: 26, type: null,  name: '생선'},
         {id: 27, type: null,  name: '닭고기'},
+        {id: 28, type: null,  name: '두부'},
+        {id: 29, type: null,  name: '당근'},
+        {id: 30, type: null,  name: '오이'},
+        {id: 31, type: null,  name: '올리브유'},
+        {id: 32, type: null,  name: '식용유'},
+        {id: 33, type: null,  name: '참기름'},
+        {id: 34, type: null,  name: '가지'},
     ]
 }
 

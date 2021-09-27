@@ -26,14 +26,12 @@ class Naver {
                     display: 5,
                 }
             })
-            .then(function (response) {
-                console.log(response.data.items)                
-            })        
-            .catch(function (error) {
+            // console.log(response.data.items);
+            // .catch(function (error) {
 
-                console.log(error);
-            });
-        // console.log(response)
+            //     console.log(error);
+            // });
+        
     }
 }
 

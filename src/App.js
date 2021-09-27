@@ -4,14 +4,22 @@ import SelectedItem from './component/SelectedItem';
 import Result from './component/Result';
 import { useState } from 'react';
 
-function App({itemsData, naver}) {
+function App({itemsData, naver, youtube}) {
 
   const [data, setData] = useState(itemsData.items)
   const [filteredItem, setFilteredItem] = useState();
   const [selectedItem, setSelectedItem] = useState([]);
   const [keyword, setKeyword] = useState();  
+  const [naverData, setNaverData] = useState([]);
+  const [youtubeData, setYoutubeData] = useState();
   
 
+
+  const connectAPI = () => {    
+    // naver.search(selectedItem.join(' ')).then((res)=> console.log(res)) ;
+    youtube.search(selectedItem.join(' ')+' 요리').then((res)=> setYoutubeData(res)) ;
+    
+  }
 
   const addSelectedItem = (item) => {
     const updated = [...selectedItem, item ]
@@ -27,7 +35,7 @@ function App({itemsData, naver}) {
     setSelectedItem(updated)
   }
 
-  function autoComplete(e){
+  const autoComplete = (e) => {
     const currentValue = e.target.value;
     setKeyword(currentValue);
 
@@ -35,18 +43,30 @@ function App({itemsData, naver}) {
     setFilteredItem(filtered);    
   }
 
-  function resetSelected(){
+  const resetSelected = () => {
     setSelectedItem([]);
   }
 
   return (
     <div className="App">
       <div className="container">
-        <Search itemsData={itemsData} addSelectedItem={addSelectedItem} autoComplete={autoComplete} filteredItem={filteredItem} itemsData={itemsData} resetSelected={resetSelected} selectedItem={selectedItem}></Search>      
-        <SelectedItem selectedItem={selectedItem}></SelectedItem>
+        <Search
+          itemsData={itemsData}
+          addSelectedItem={addSelectedItem}
+          autoComplete={autoComplete}
+          filteredItem={filteredItem}
+          itemsData={itemsData}
+          resetSelected={resetSelected}
+          selectedItem={selectedItem}
+          connectAPI={connectAPI}
+        />
+        <SelectedItem selectedItem={selectedItem}/>
       </div>
-      
-      <Result></Result>
+
+      <Result
+        naverData={naverData}
+        youtubeData={youtubeData}
+      />
     </div>
   );
 }

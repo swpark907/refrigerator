@@ -18,7 +18,7 @@ class Youtube {
                 type: 'video',
             }
         })
-        console.log(response.data.items)
+        // console.log(response.data.items)
         return response.data.items.map(item => ({...item, id: item.id.videoId}))
     }
 }
