@@ -4,12 +4,12 @@ import SelectedItem from './component/SelectedItem';
 import Result from './component/Result';
 import { useState } from 'react';
 
-function App({itemsData}) {
+function App({itemsData, naver}) {
 
   const [data, setData] = useState(itemsData.items)
   const [filteredItem, setFilteredItem] = useState();
   const [selectedItem, setSelectedItem] = useState([]);
-  const [keyword, setKeyword] = useState();
+  const [keyword, setKeyword] = useState();  
   
 
 

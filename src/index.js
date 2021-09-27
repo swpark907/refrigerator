@@ -4,18 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import itemList from './ItemList';
+import Naver from './service/naver_search';
+import Youtube from './service/youtube_search';
 
 
-
+const naver = new Naver('dmkfAOtx1dm8NTjBlBxe', 'lHhmoqqW3D')
+naver.search('frontend');
+const youtube = new Youtube('AIzaSyCXyT92wesjrZIXZkXmgO6Dul9J46oAfos');
+youtube.search('돼지고기 양파 대파');
 
 ReactDOM.render(
   <React.StrictMode>
-    <App itemsData={itemList}/>
+    <App itemsData={itemList} /*naver={naver}*//>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();

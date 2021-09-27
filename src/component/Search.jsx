@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
 function Search({addSelectedItem, autoComplete, filteredItem, itemsData, resetSelected, selectedItem}) {
 
