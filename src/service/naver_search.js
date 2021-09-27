@@ -9,10 +9,10 @@ class Naver {
             headers: {
                 "X-Naver-Client-Id": this.id,
                 "X-Naver-Client-Secret": this.secret,
-                'Access-Control-Allow-Credentials': true,
-                'Access-Control-Allow-Origin' : 'http://localhost:3000/',
-                'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-                'Access-Contron-Allow-Headers':'Origin,X-Requested-With,Content-Type,Accept',
+                // 'Access-Control-Allow-Credentials': true,
+                // 'Access-Control-Allow-Origin' : 'http://localhost:3000/',
+                // 'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                // 'Access-Contron-Allow-Headers':'Origin,X-Requested-With,Content-Type,Accept',
             },
         });
     }
@@ -26,12 +26,12 @@ class Naver {
                     display: 5,
                 }
             })
-            // console.log(response.data.items);
+            console.log(response.data.items);
             // .catch(function (error) {
 
             //     console.log(error);
             // });
-        
+        return response.data.items;
     }
 }
 

@@ -17,9 +17,13 @@ class Youtube {
                 q: query,                
                 type: 'video',
             }
+        }).catch(function(error){
+            console.log('this is error@@@@@@@@@@@@@', error)
         })
-        // console.log(response.data.items)
+
+        console.log(response.data.items)
         return response.data.items.map(item => ({...item, id: item.id.videoId}))
+        
     }
 }
 

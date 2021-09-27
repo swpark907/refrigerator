@@ -16,8 +16,8 @@ function App({itemsData, naver, youtube}) {
 
 
   const connectAPI = () => {    
-    // naver.search(selectedItem.join(' ')).then((res)=> console.log(res)) ;
-    youtube.search(selectedItem.join(' ')+' 요리').then((res)=> setYoutubeData(res)) ;
+    naver.search(selectedItem.join(' ') + ' 요리').then((res)=> setNaverData(res)) ;
+    // youtube.search(selectedItem.join(' ')+' 요리').then((res)=> setYoutubeData(res)) ;
     
   }
 
@@ -45,6 +45,8 @@ function App({itemsData, naver, youtube}) {
 
   const resetSelected = () => {
     setSelectedItem([]);
+    setYoutubeData();
+    setNaverData();
   }
 
   return (

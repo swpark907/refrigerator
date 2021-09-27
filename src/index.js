@@ -9,7 +9,8 @@ import Youtube from './service/youtube_search';
 
 
 const naver = new Naver('dmkfAOtx1dm8NTjBlBxe', 'lHhmoqqW3D')
-const youtube = new Youtube('AIzaSyCXyT92wesjrZIXZkXmgO6Dul9J46oAfos');
+// const youtube = new Youtube('AIzaSyCXyT92wesjrZIXZkXmgO6Dul9J46oAfos'); //옛날 키
+const youtube = new Youtube('AIzaSyCbbuvDXkx3FV2cQf37nG16DAf-d9-UYSc'); // 새로운 키
 
 
 ReactDOM.render(
