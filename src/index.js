@@ -6,11 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import itemList from './ItemList';
 import Naver from './service/naver_search';
 import Youtube from './service/youtube_search';
+import dotenv from "dotenv";
+dotenv.config();
 
+const naver_key = process.env.REACT_APP_NAVER_API_KEY;
+const naver_secret = process.env.REACT_APP_NAVER_API_SECRET
+const youtube_key = process.env.REACT_APP_YOUTUBE_API_NEW_KEY;
 
-const naver = new Naver('dmkfAOtx1dm8NTjBlBxe', 'lHhmoqqW3D')
-// const youtube = new Youtube('AIzaSyCXyT92wesjrZIXZkXmgO6Dul9J46oAfos'); //옛날 키
-const youtube = new Youtube('AIzaSyCbbuvDXkx3FV2cQf37nG16DAf-d9-UYSc'); // 새로운 키
+const naver = new Naver(naver_key, naver_secret)
+const youtube = new Youtube(youtube_key);
 
 
 ReactDOM.render(
