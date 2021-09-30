@@ -7,7 +7,7 @@ function SelectedItem({selectedItem}) {
             <ul className='selected_items'>
             {
                 selectedItem.map(item => 
-                    <li className='selected_item' id={item}>{item}</li>
+                    <li className='selected_item' id={item}>{item}<i class="fas fa-check"></i></li>
                 )
             }
             </ul>

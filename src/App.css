@@ -33,8 +33,7 @@ ul li{
     background-color: rgb(255, 204, 109);
     border-radius: 10px;
     padding: 0.7rem;
-    margin: 0.5rem;    
-    display: none;
+    margin: 0.5rem;        
 }
 
 .item:hover{
@@ -49,22 +48,8 @@ ul li{
     display: block;
 }
 
-/* .item-cancel{
-    cursor: pointer;
-    margin-left: 0.5rem;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: rgb(150, 150, 150)
-}
-
-.item-cancel:hover{
-    color: black;
-} */
-
 .selected-area{
     flex-basis: 40%;
-    
 }
 
 .selected_items{
@@ -74,6 +59,53 @@ ul li{
 .selected_item{
     margin-right: 1.5rem;
 }
+
+.main{
+    position: relative;    
+}
+
+.main::after{
+    position: absolute;
+    right: 0;
+    top: 0;    
+    content: '';
+    height: 80%;
+    width: 2px;
+    background-color: black;
+    transform: translateY(15%);
+}
+
+.main .search_input{
+    width: 50%;
+    font-size: 1rem;
+    padding: 0.3rem;
+}
+
+.main button{
+    outline: none;
+    border: none;
+    background-color: rgb(121, 253, 209);
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.main button:hover{
+    background-color: rgb(131, 231, 198);
+}
+
+.selected-area{
+    padding-left: 1rem;
+}
+
+.selected-area .selected_items .selected_item{
+    background-color: rgb(112, 162, 255);
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
 
 .result_section{
     display: flex;
@@ -130,6 +162,13 @@ ul li{
     padding: 1rem;
 }
 
-.video .video_desc .video_title{
+.video .video_desc .video_title,
+.video .video_desc .video_channel{
     margin-top: 0;
+    max-height: 100px;    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }

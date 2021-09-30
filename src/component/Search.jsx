@@ -18,14 +18,14 @@ function Search({addSelectedItem, autoComplete, filteredItem, itemsData, resetSe
     return (
         <div className="main">
             <h2>냉장고 털기</h2>
-            <input type="text" onChange={(e) => autoComplete(e)} />
+            <input className='search_input' type="text" onChange={(e) => autoComplete(e)} placeholder='찾기 힘들 땐 검색하세요!'/>
             <ul className="items-list">
             {
                 filteredItem === undefined
                     ? itemsData.items.map((item) =>
                         selectedItem.includes(item.name) ? (
                             <li
-                                className="item active selected"
+                                className="item selected"
                                 onClick={(e) => selected(e)}
                                 key={item.id}
                                 data-name={item.name}
@@ -34,7 +34,7 @@ function Search({addSelectedItem, autoComplete, filteredItem, itemsData, resetSe
                             </li>
                         ) : (
                             <li
-                                className="item active"
+                                className="item"
                                 onClick={(e) => selected(e)}
                                 key={item.id}
                                 data-name={item.name}
@@ -46,7 +46,7 @@ function Search({addSelectedItem, autoComplete, filteredItem, itemsData, resetSe
                     : filteredItem.map((item) =>
                         selectedItem.includes(item.name) ? (
                             <li
-                                className="item active selected"
+                                className="item selected"
                                 onClick={(e) => selected(e)}
                                 key={item.id}
                                 data-name={item.name}
@@ -55,7 +55,7 @@ function Search({addSelectedItem, autoComplete, filteredItem, itemsData, resetSe
                             </li>
                             ) : (
                             <li
-                                className="item active"
+                                className="item"
                                 onClick={(e) => selected(e)}
                                 key={item.id}
                                 data-name={item.name}
