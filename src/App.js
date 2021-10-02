@@ -57,8 +57,7 @@ function App({itemsData, naver, youtube}) {
           itemsData={itemsData}
           addSelectedItem={addSelectedItem}
           autoComplete={autoComplete}
-          filteredItem={filteredItem}
-          itemsData={itemsData}
+          filteredItem={filteredItem}          
           resetSelected={resetSelected}
           selectedItem={selectedItem}
           connectAPI={connectAPI}
