@@ -18,8 +18,9 @@ class Naver {
     }
 
     async search(query){
-        console.log(query + ' in naver');        
-        const response = await this.naver.get('search/blog',
+        console.log(query + ' in naver');
+        try{
+            const response = await this.naver.get('search/blog',
             {   
                 params:{
                     query: query,
@@ -27,11 +28,9 @@ class Naver {
                 }
             })
             console.log(response.data.items);
-            // .catch(function (error) {
-
-            //     console.log(error);
-            // });
-        return response.data.items;
+            return response.data.items;
+        } catch(error){console.log(error)};
+        
     }
 }
 
