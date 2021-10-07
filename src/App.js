@@ -2,6 +2,7 @@ import './App.css';
 import Search from './component/Search';
 import SelectedItem from './component/SelectedItem';
 import Result from './component/Result';
+import Loading from './component/Loading';
 import { useState } from 'react';
 
 function App({itemsData, naver, youtube}) {
@@ -51,7 +52,8 @@ function App({itemsData, naver, youtube}) {
   }
 
   return (
-    <div className="App">
+    <div className="App">     
+      <Loading></Loading> 
       <div className="container">
         <Search
           itemsData={itemsData}
