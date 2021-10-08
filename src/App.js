@@ -2,7 +2,6 @@ import './App.css';
 import Search from './component/Search';
 import SelectedItem from './component/SelectedItem';
 import Result from './component/Result';
-import Loading from './component/Loading';
 import { useState } from 'react';
 
 function App({itemsData, naver, youtube}) {
@@ -13,14 +12,15 @@ function App({itemsData, naver, youtube}) {
   const [keyword, setKeyword] = useState();  
   const [naverData, setNaverData] = useState([]);
   const [youtubeData, setYoutubeData] = useState();
+  const [loading, setLoading] = useState(false);
   
 
 
-  const connectAPI = () => {    
+  const connectAPI = () => {
+    setLoading(true);    
     naver.search(selectedItem.join(' ') + ' 요리')
-    .then((res)=> {setNaverData(res)}) ;
+    .then((res)=> {setNaverData(res)}).then((res) => {setLoading(false)});
     youtube.search(selectedItem.join(' ')+' 요리').then((res)=> setYoutubeData(res)) ;
-    
   }
 
   const addSelectedItem = (item) => {
@@ -52,8 +52,7 @@ function App({itemsData, naver, youtube}) {
   }
 
   return (
-    <div className="App">     
-      <Loading></Loading> 
+    <div className="App">           
       <div className="container">
         <Search
           itemsData={itemsData}
@@ -70,6 +69,7 @@ function App({itemsData, naver, youtube}) {
       <Result
         naverData={naverData}
         youtubeData={youtubeData}
+        loading={loading}
       />
     </div>
   );

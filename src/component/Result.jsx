@@ -1,29 +1,32 @@
 import e from 'cors';
-import React from 'react';
+import React, { useState } from 'react';
+import Loading from './Loading';
 
-function Result({naverData, youtubeData}) {
-    // let stringFromItem = selectedItem.join(' ')
+function Result({naverData, youtubeData, loading}) {    
     console.log(youtubeData, 'youtubeData in Result')
+    
     
     return (
         <div className="result_section">
             <ul className='results' id='naver'>
                 
-                {
-                    naverData && naverData.map((data) => {
-                        const newTitle = data.title.replace(/(<([^>]+)>)/ig," ");
-                        const newDesc = data.description.replace(/(<([^>]+)>)/ig," ");
-                        return (
-                            <li className='blog' onClick={() => {window.open(`${data.link}`, '_blank')}}>                            
-                            <h3 className='blog_title'>{newTitle}</h3>
-                            <p className='blog_desc'>{newDesc}</p>
-                            <p className='blog_blogger'>{data.bloggername}</p>                            
-                        </li>
+                    {   loading ?
+                        <Loading/>
+                        : naverData && naverData.map((data) => {
+                                const newTitle = data.title.replace(/(<([^>]+)>)/ig," ");
+                                const newDesc = data.description.replace(/(<([^>]+)>)/ig," ");
+                                return (
+                                    <li className='blog' onClick={() => {window.open(`${data.link}`, '_blank')}}>                            
+                                    <h3 className='blog_title'>{newTitle}</h3>
+                                    <p className='blog_desc'>{newDesc}</p>
+                                    <p className='blog_blogger'>{data.bloggername}</p>                            
+                                </li>
+                                )
+                            }
                         )
                     }
-                        
-                    )
-                }
+                
+                
             </ul>
             <ul className='results' id='youtube'>
                 {

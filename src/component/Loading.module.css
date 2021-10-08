@@ -3,6 +3,7 @@
     width: 100px;
     height: 100px;
     animation: animateBg 7s linear infinite;
+    transform: scale(0.5);
 }
 
 @keyframes animateBg{
