@@ -12,15 +12,30 @@ function App({itemsData, naver, youtube}) {
   const [keyword, setKeyword] = useState();  
   const [naverData, setNaverData] = useState([]);
   const [youtubeData, setYoutubeData] = useState();
-  const [loading, setLoading] = useState(false);
+  const [NLoading, setNLoading] = useState(false);
+  const [YLoading, setYLoading] = useState(false);
   
 
 
   const connectAPI = () => {
-    setLoading(true);    
-    naver.search(selectedItem.join(' ') + ' 요리')
-    .then((res)=> {setNaverData(res)}).then((res) => {setLoading(false)});
-    youtube.search(selectedItem.join(' ')+' 요리').then((res)=> setYoutubeData(res)) ;
+    setNLoading(true);
+    setYLoading(true);
+    naver
+      .search(selectedItem.join(" ") + " 요리")
+      .then((res) => {
+        setNaverData(res);
+      })
+      .then((res) => {
+        setNLoading(false);
+      });
+    youtube
+      .search(selectedItem.join(" ") + " 요리")
+      .then((res) => {
+        setYoutubeData(res);
+      })
+      .then((res) => {
+        setYLoading(false);
+      });
   }
 
   const addSelectedItem = (item) => {
@@ -69,7 +84,8 @@ function App({itemsData, naver, youtube}) {
       <Result
         naverData={naverData}
         youtubeData={youtubeData}
-        loading={loading}
+        NLoading={NLoading}
+        NLoading={NLoading}
       />
     </div>
   );

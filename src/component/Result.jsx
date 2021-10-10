@@ -2,7 +2,7 @@ import e from 'cors';
 import React, { useState } from 'react';
 import Loading from './Loading';
 
-function Result({naverData, youtubeData, loading}) {    
+function Result({naverData, youtubeData, NLoading, YLoading}) {    
     console.log(youtubeData, 'youtubeData in Result')
     
     
@@ -10,7 +10,7 @@ function Result({naverData, youtubeData, loading}) {
         <div className="result_section">
             <ul className='results' id='naver'>
                 
-                    {   loading ?
+                    {   NLoading ?
                         <Loading/>
                         : naverData && naverData.map((data) => {
                                 const newTitle = data.title.replace(/(<([^>]+)>)/ig," ");
@@ -29,8 +29,9 @@ function Result({naverData, youtubeData, loading}) {
                 
             </ul>
             <ul className='results' id='youtube'>
-                {
-                    youtubeData && youtubeData.map((data) => 
+                {   YLoading ?
+                    <Loading/>
+                    : youtubeData && youtubeData.map((data) => 
                         <li className='video' onClick={() => {window.open(`http://www.youtube.com/watch?v=${data.id}`, '_blank')}}>
                             <img src={data.snippet.thumbnails.medium.url} className='video_thumbnail' alt="'video_thumbnail'" />
                             <div className='video_desc'>
