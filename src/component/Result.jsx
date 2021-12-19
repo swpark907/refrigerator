@@ -1,6 +1,8 @@
 import e from 'cors';
 import React, { useState } from 'react';
 import Loading from './Loading';
+import NaverItem from './NaverItem';
+import YoutubeItem from './YoutubeItem';
 
 function Result({naverData, youtubeData, NLoading, YLoading}) {    
     console.log(youtubeData, 'youtubeData in Result')
@@ -16,11 +18,7 @@ function Result({naverData, youtubeData, NLoading, YLoading}) {
                                 const newTitle = data.title.replace(/(<([^>]+)>)/ig," ");
                                 const newDesc = data.description.replace(/(<([^>]+)>)/ig," ");
                                 return (
-                                    <li className='blog' onClick={() => {window.open(`${data.link}`, '_blank')}}>                            
-                                    <h3 className='blog_title'>{newTitle}</h3>
-                                    <p className='blog_desc'>{newDesc}</p>
-                                    <p className='blog_blogger'>{data.bloggername}</p>                            
-                                </li>
+                                    <NaverItem data={data}/>
                                 )
                             }
                         )
@@ -32,15 +30,7 @@ function Result({naverData, youtubeData, NLoading, YLoading}) {
                 {   YLoading ?
                     <Loading/>
                     : youtubeData && youtubeData.map((data) => 
-                        <li className='video' onClick={() => {window.open(`http://www.youtube.com/watch?v=${data.id}`, '_blank')}}>
-                            <img src={data.snippet.thumbnails.medium.url} className='video_thumbnail' alt="'video_thumbnail'" />
-                            <div className='video_desc'>
-                                <h3 className='video_title'>{data.snippet.title}</h3>
-                                <p className='video_channel'>{data.snippet.channelTitle}</p>
-                            </div>
-                            
-                            
-                        </li>
+                            <YoutubeItem data={data}/>
                     )
                 }
             </ul>
