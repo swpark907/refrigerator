@@ -1,5 +1,5 @@
 body{
-    margin: 2rem;
+    margin: 0;
 }
 
 ul{
@@ -10,10 +10,59 @@ ul li{
     list-style: none;
 }
 
-.container{
-    display: flex;
-
+.App{
     
+}
+
+.hero{
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    margin: 3rem 0;
+    color: black;
+}
+
+.hero .wallpaper{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero .hero__desc{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero h1, .hero p{
+    text-align: center;
+    margin: auto;
+    /* font-size: 40px; */
+}
+
+.hero h1{
+    font-size: 50px;
+    margin-bottom: 1rem;
+}
+
+.hero p{
+    font-size: 30px;
+}
+
+
+.container{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1280px;
+    width: 1280px;
+}
+
+.container .search{
+    display: flex;
 }
 
 .main{
@@ -145,6 +194,10 @@ ul li{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.blog_blogger{
+    font-weight: bold;
 }
 
 .video{

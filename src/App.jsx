@@ -3,6 +3,7 @@ import Search from './component/Search';
 import SelectedItem from './component/SelectedItem';
 import Result from './component/Result';
 import { useState } from 'react';
+import Hero from './component/Hero';
 
 function App({itemsData, naver, youtube}) {
 
@@ -67,26 +68,28 @@ function App({itemsData, naver, youtube}) {
   }
 
   return (
-    <div className="App">           
+    <div className="App">
+      <Hero></Hero>  
       <div className="container">
-        <Search
-          itemsData={itemsData}
-          addSelectedItem={addSelectedItem}
-          autoComplete={autoComplete}
-          filteredItem={filteredItem}          
-          resetSelected={resetSelected}
-          selectedItem={selectedItem}
-          connectAPI={connectAPI}
-        />
-        <SelectedItem selectedItem={selectedItem}/>
-      </div>
-
-      <Result
+        <section className="search">
+          <Search
+            itemsData={itemsData}
+            addSelectedItem={addSelectedItem}
+            autoComplete={autoComplete}
+            filteredItem={filteredItem}          
+            resetSelected={resetSelected}
+            selectedItem={selectedItem}
+            connectAPI={connectAPI}
+          />
+          <SelectedItem selectedItem={selectedItem}/>
+        </section>        
+        <Result
         naverData={naverData}
         youtubeData={youtubeData}
         NLoading={NLoading}
         NLoading={NLoading}
       />
+      </div>
     </div>
   );
 }
