@@ -44,9 +44,8 @@ function App({itemsData, naver, youtube}) {
 
     if(selectedItem.includes(item)){
       
-      const updated2 = updated.filter(selected => selected !== item)    
-      console.log(updated2)  
-      setSelectedItem(updated2)
+      const updated2 = updated.filter(selected => selected !== item);
+      setSelectedItem(updated2);
       return;
     }
 

@@ -4,9 +4,7 @@ import Loading from './Loading';
 import NaverItem from './NaverItem';
 import YoutubeItem from './YoutubeItem';
 
-function Result({naverData, youtubeData, NLoading, YLoading}) {    
-    console.log(youtubeData, 'youtubeData in Result')
-    
+function Result({naverData, youtubeData, NLoading, YLoading}) {       
     
     return (
         <div className="result_section">
@@ -29,8 +27,8 @@ function Result({naverData, youtubeData, NLoading, YLoading}) {
             <ul className='results' id='youtube'>
                 {   YLoading ?
                     <Loading/>
-                    : youtubeData && youtubeData.map((data) => 
-                            <YoutubeItem data={data}/>
+                    : youtubeData && youtubeData.map((data, i) => 
+                            <YoutubeItem key={i} data={data}/>
                     )
                 }
             </ul>

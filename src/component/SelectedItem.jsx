@@ -6,8 +6,8 @@ function SelectedItem({selectedItem}) {
             <h3>선택한 재료</h3>
             <ul className='selected_items'>
             {
-                selectedItem.map(item => 
-                    <li className='selected_item' id={item}>{item}<i class="fas fa-check"></i></li>
+                selectedItem.map((item, i) => 
+                    <li key={i} className='selected_item' id={item}>{item}<i className="fas fa-check"></i></li>
                 )
             }
             </ul>

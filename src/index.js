@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import itemList from './ItemList';
 import Naver from './service/naver_search';
 import Youtube from './service/youtube_search';
@@ -17,12 +16,10 @@ const naver = new Naver(naver_key, naver_secret)
 const youtube = new Youtube(youtube_key);
 
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App itemsData={itemList} naver={naver} youtube={youtube}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-
-reportWebVitals();
