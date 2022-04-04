@@ -10,8 +10,8 @@ function Search({addSelectedItem, autoComplete, filteredItem, itemsData, resetSe
             <input className='search_input' type="text" onChange={autoComplete} placeholder='찾기 힘들 땐 검색하세요!'/>
             <ul className="items-list">
             {
-                filteredItem === undefined
-                    ? itemsData.items.map((item) =>
+                !filteredItem
+                    ? itemsData.items.map((item) => /* 필터링 된 것이 없을 때 모든 재료 보여주기 */
                     <AutoCompleteItem item={item} addSelectedItem={addSelectedItem} selectedItem={selectedItem}/>
                     )
                     : filteredItem.map((item) =>
