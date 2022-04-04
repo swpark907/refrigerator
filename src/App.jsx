@@ -86,7 +86,6 @@ function App({itemsData, naver, youtube}) {
         naverData={naverData}
         youtubeData={youtubeData}
         NLoading={NLoading}
-        NLoading={NLoading}
       />
       </div>
     </div>
